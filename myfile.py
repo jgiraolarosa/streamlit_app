@@ -5,7 +5,6 @@ from datetime import time
 
 st.title("Título del proyecto Jorge 2")
 st.write("Hola, ¿**cómo** estás?")
-st.latex("\omega=x_2")
 
 #Lectura del dataframe
 df = pd.read_excel('/app/streamlit_app/Catalogo1960_2021.xlsx')
@@ -13,7 +12,7 @@ df = pd.read_excel('/app/streamlit_app/Catalogo1960_2021.xlsx')
 #Magnitud
 magnitudInicio = st.slider("Magnitud inicio:", 0, 9, step=1)
 magnitudFin = st.slider("Magnitud fin:", magnitudInicio, 9, step=1)
-df.query("MAGNITUD >= {}".format(magnitudInicio))
+df = df.query("MAGNITUD >= {}".format(magnitudInicio))
 
 #Mostrar mapa
 st.map(df)
