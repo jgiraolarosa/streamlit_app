@@ -24,5 +24,5 @@ df = pd.DataFrame(
 st.map(df)
 
 #df2 = pd.read_excel('C:/Pucp/IA/Catalogo1960_2021.xlsx')
-df2 = pd.read_excel('Catalogo1960_2021.xlsx')
+df2 = pd.read_excel('/app/streamlit_app/Catalogo1960_2021.xlsx')
 st.map(df2)
