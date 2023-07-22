@@ -12,7 +12,9 @@ df = pd.read_excel('/app/streamlit_app/Catalogo1960_2021.xlsx')
 #Magnitud
 magnitudInicio = st.slider("Magnitud inicio:", 0, 9, step=1)
 magnitudFin = st.slider("Magnitud fin:", magnitudInicio, 9, step=1)
-df = df.query("MAGNITUD >= {}".format(magnitudInicio))
+queryMagnitud = "MAGNITUD >= " + magnitudInicio + " and MAGNITUD <= " + magnitudFin
+#df = df.query("MAGNITUD >= {}".format(magnitudInicio))
+df = df.query(queryMagnitud)
 
 #Mostrar mapa
 st.map(df)
