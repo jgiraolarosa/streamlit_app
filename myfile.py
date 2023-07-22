@@ -6,6 +6,7 @@ from datetime import time
 st.title("Título del proyecto Jorge 2")
 st.write("Hola, ¿**cómo** estás?")
 st.write("Bien")
+st.write("Hola, ¿**cómo** estás?")
 
 #Lectura del dataframe
 df = pd.read_excel('/app/streamlit_app/Catalogo1960_2021.xlsx')
