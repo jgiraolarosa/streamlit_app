@@ -9,6 +9,9 @@ st.write("Hola, ¿**cómo** estás?")
 #Lectura del dataframe
 df = pd.read_excel('/app/streamlit_app/Catalogo1960_2021.xlsx')
 
+
+
+
 #Magnitud
 magnitudInicio = st.slider("Magnitud inicio:", 3, 9, step=1)
 magnitudFin = st.slider("Magnitud fin:", magnitudInicio, 9, step=1)
