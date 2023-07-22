@@ -23,5 +23,5 @@ df = pd.DataFrame(
 
 st.map(df)
 
-df = pd.read_csv("Catalogo1960_2021.xlsx")
+df = pd.read_excel("Catalogo1960_2021.xlsx")
 df.head(4)
