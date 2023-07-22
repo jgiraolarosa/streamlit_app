@@ -7,15 +7,11 @@ st.title("Título del proyecto Jorge 2")
 st.write("Hola, ¿**cómo** estás?")
 st.latex("\omega=x_2")
 
-magnitud = st.slider("Magnitud:", 0, 9, step=1)
+magnitud = st.slider("Magnitud:", 0, 9, step=0.1)
 st.write("La magnitud es {}".format(magnitud))
 
 appointment = st.slider("Programe la asesoria:", value=(time(11, 30), time(12, 45)))
 st.write("Esta agendado para:", appointment)
-
-n = st.slider("n", 5,100, step=1)
-chart_data = pd.DataFrame(np.random.randn(n),columns=['data'])
-st.line_chart(chart_data)
 
 df2 = pd.read_excel('/app/streamlit_app/Catalogo1960_2021.xlsx')
 #df2 = df2.loc(df['MAGNITUD'] )
