@@ -10,13 +10,6 @@ st.title("Sismos en Perú de 1960-2021")
 df = pd.read_excel('/app/streamlit_app/Catalogo1960_2021.xlsx')
 
 #Magnitud
-magnitudInicio = st.slider("Magnitud inicio:", 3, 9, step=1)
-magnitudFin = st.slider("Magnitud fin:", magnitudInicio, 9, step=1)
-#queryMagnitud = "MAGNITUD >= " + str(magnitudInicio) + " and MAGNITUD <= " + str(magnitudFin)
-queryMagnitud = "MAGNITUD >= " + str(magnitudInicio)
-#df = df.query("MAGNITUD >= {}".format(magnitudInicio))
-
-#Magnitud
 magnitudPosible = [3,4,5,6,7,8,9]
 magInicio, magFin = st.select_slider("Magnitud del sismo:", options=magnitudPosible, value=(3,9))
 
@@ -32,7 +25,6 @@ def iguala_formato(fecha_numero):
 df['FECHA_UTC_NEW']=df['FECHA_UTC'].apply(iguala_formato)
 #st.write(df['FECHA_UTC_NEW'])
 
-#df = df[(df.MAGNITUD>=magnitudInicio)]
 #df = df[df.FECHA_UTC_NEW<start_time]
 df = df[(df.MAGNITUD>=magInicio) & (df.MAGNITUD<=magFin)]
 #df = df[df.MAGNITUD>=magInicio & df.MAGNITUD<=magFin & df.FECHA_UTC_NEW<start_time]
