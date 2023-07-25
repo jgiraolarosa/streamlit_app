@@ -22,7 +22,7 @@ queryMagnitud = "MAGNITUD >= " + str(magnitudInicio)
 #df = df.query("MAGNITUD >= {}".format(magnitudInicio))
 
 
-print(df['FECHA_UTC'])
+
 
 
 start_time = st.slider("FECHA UTC",datetime(1960, 1, 1),datetime(2022, 1, 1))
@@ -35,7 +35,7 @@ def iguala_formato(string):
     mi_formato = string[:4]+"-"+string[4:6]+"-"+string[6:]
     return datetime(mi_formato)
 
-
+st.write(df['FECHA_UTC'])
 
 #df = df[(df.MAGNITUD>=magnitudInicio)]
 #df = df[(iguala_formato(df.FECHA_UTC)<datetime.now())]
