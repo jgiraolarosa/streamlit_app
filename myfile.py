@@ -31,7 +31,7 @@ queryTime = "FECHA_UTC >= " + str(start_time)
 
 
 def iguala_formato(string):
-    mi_formato = string[:4]+"-"string[4:6]+"-"+string[6:]
+    mi_formato = string[:4]+"-"+string[4:6]+"-"+string[6:]
     return datetime(mi_formato)
 
 
