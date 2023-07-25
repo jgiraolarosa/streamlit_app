@@ -17,7 +17,7 @@ queryMagnitud = "MAGNITUD >= " + str(magnitudInicio)
 #df = df.query("MAGNITUD >= {}".format(magnitudInicio))
 
 #Fecha
-start_time = st.slider("Fechas:", datetime(1960, 1, 1), datetime(2022, 1, 1))
+start_time = st.slider("Fechas:", datetime(1960, 1, 1), datetime.now())
 #st.write("Fecha seleccionada:", start_time)
 queryTime = "FECHA_UTC >= " + str(start_time)
 
