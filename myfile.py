@@ -10,8 +10,8 @@ st.write("En esta página podrá visualizar la ubicación y profundidad de los s
 df = pd.read_excel('/app/streamlit_app/Catalogo1960_2021.xlsx')
 
 #Magnitud
-magnitudPosible = [3,4,5,6,7,8,9]
-magInicio, magFin = st.select_slider("Magnitud:", options=magnitudPosible, value=(3,9))
+magnitudPosible = [3.0,4.0,5.0,6.0,7.0,8.0,9.0]
+magInicio, magFin = st.select_slider("Magnitud:", options=magnitudPosible, value=(3.0,9.0))
 
 #Fecha
 fechaInicio = datetime(1960, 1, 1)
@@ -34,7 +34,7 @@ df = df[(df.MAGNITUD>=magInicio) & (df.MAGNITUD<=magFin) & (df.FECHA_UTC_NEW>=st
 #df = df.query(queryTime)
 
 if magInicio == magFin:
-    st.write("Se muestran los sismos de magnitud ", magInicio)
+    st.write("Se muestran los sismos de magnitud ", magInicio,"ocurridos entre", start_time, "a", end_time)
 else:
     st.write("Se muestran los sismos en el rango de magnitud ", magInicio, " y ", magFin, "ocurridos entre", start_time, "a", end_time)
 #Mostrar mapa
