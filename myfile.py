@@ -38,7 +38,7 @@ if magInicio == magFin:
 else:
     st.write("Se muestran los sismos en el rango de magnitud ", magInicio, " y ", magFin, "ocurridos entre", start_time, "a", end_time)
 #Mostrar mapa
-st.map(df,color=df.MAGNITUD)
+st.map(df)
 
 #Fuente:
 st.write("Fuente: Catálogo Sísmico del Perú de 1960 a 2021.[https://www.datosabiertos.gob.pe/dataset/catalogo-sismico-1960-2021-igp")
