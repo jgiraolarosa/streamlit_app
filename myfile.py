@@ -34,9 +34,9 @@ df['FECHA_UTC_NEW']=df['FECHA_UTC'].apply(iguala_formato)
 
 #df = df[(df.MAGNITUD>=magnitudInicio)]
 #df = df[df.FECHA_UTC_NEW<start_time]
-df = df[df.MAGNITUD>=magInicio & df.MAGNITUD<=magFin & df.FECHA_UTC_NEW<start_time]
+df = df[df.MAGNITUD>=magInicio & df.MAGNITUD<=magFin ]
+#df = df[df.MAGNITUD>=magInicio & df.MAGNITUD<=magFin & df.FECHA_UTC_NEW<start_time]
 #df = df.query(queryTime)
-
 
 #Mostrar mapa
 st.map(df)
