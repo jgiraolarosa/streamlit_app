@@ -33,15 +33,15 @@ queryTime = "FECHA_UTC >= " + str(start_time)
 
 def iguala_formato(fecha_numero):
     string=str(fecha_numero)
-    mi_formato = string[:4]+"-"+string[4:6]+"-"+string[6:]
-    #return datetime(mi_formato)
-    return mi_formato
+    #mi_formato = string[:4]+"-"+string[4:6]+"-"+string[6:]
+    return datetime.date(int(string[:4]),int(string[4:6]),int(string[6:]))
+    
 
 df['FECHA_UTC_NEW']=df['FECHA_UTC'].apply(iguala_formato)
 st.write(df['FECHA_UTC_NEW'])
 
-df = df[(df.MAGNITUD>=magnitudInicio)]
-#df = df[(iguala_formato(df.FECHA_UTC)<datetime.now())]
+#df = df[(df.MAGNITUD>=magnitudInicio)]
+#df = df[(iguala_formato(df.FECHA_UTC_NEW)<datetime.now())]
 #df = df[(df.MAGNITUD>=magnitudInicio) & (df.FECHA_UTC>=start_time)]
 #df = df.query(queryTime)
 
