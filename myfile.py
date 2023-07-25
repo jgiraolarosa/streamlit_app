@@ -34,7 +34,7 @@ def iguala_formato(string):
     mi_formato = string[:4]+"-"+string[4:6]+"-"+string[6:]
     return datetime(mi_formato)
 
-print(df[['FECHA_UTC']])
+print(df['FECHA_UTC'])
 
 #df = df[(df.MAGNITUD>=magnitudInicio)]
 #df = df[(iguala_formato(df.FECHA_UTC)<datetime.now())]
