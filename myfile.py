@@ -30,8 +30,14 @@ st.write("Fecha seleccionada:", start_time)
 queryTime = "FECHA_UTC >= " + str(start_time)
 
 
+def iguala_formato(string):
+    mi_formato = string[:4]+"-"string[4:6]+"-"+string[6:]
+    return datetime(mi_formato)
+
+
+
 #df = df[(df.MAGNITUD>=magnitudInicio)]
-df = df[(datetime(df.FECHA_UTC)<datetime.now())]
+df = df[(iguala_formato(df.FECHA_UTC)<datetime.now())]
 #df = df[(df.MAGNITUD>=magnitudInicio) & (df.FECHA_UTC>=start_time)]
 #df = df.query(queryTime)
 
