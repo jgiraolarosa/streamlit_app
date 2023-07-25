@@ -37,7 +37,8 @@ def iguala_formato(fecha_numero):
     #return datetime.date(int(string[:4]),int(string[4:6]),int(string[6:]))
     #return datetime.date(2020,10,10)
     #return 'hola'
-    return datetime(2020,10,10)
+    #return datetime(2020,10,10)
+    return datetime(int(string[:4]),int(string[4:6]),int(string[6:]))
     
 df['FECHA_UTC_NEW']=df['FECHA_UTC'].apply(iguala_formato)
 st.write(df['FECHA_UTC_NEW'])
