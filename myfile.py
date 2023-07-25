@@ -30,8 +30,8 @@ st.write("Fecha seleccionada:", start_time)
 queryTime = "FECHA_UTC >= " + str(start_time)
 
 
-df = df[(df.MAGNITUD>=magnitudInicio)]
-#df = df[(df.MAGNITUD>=magnitudInicio) & (df.FECHA_UTC>=start_time]
+#df = df[(df.MAGNITUD>=magnitudInicio)]
+df = df[(df.MAGNITUD>=magnitudInicio) & (df.FECHA_UTC>=start_time)]
 #df = df.query(queryTime)
 
 
