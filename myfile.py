@@ -36,11 +36,11 @@ def iguala_formato(fecha_numero):
     return datetime(int(string[:4]),int(string[4:6]),int(string[6:]))
     
 df['FECHA_UTC_NEW']=df['FECHA_UTC'].apply(iguala_formato)
-st.write(df['FECHA_UTC_NEW'])
+#st.write(df['FECHA_UTC_NEW'])
 
 #df = df[(df.MAGNITUD>=magnitudInicio)]
-df = df[df.FECHA_UTC_NEW<start_time]
-#df = df[(df.MAGNITUD>=magnitudInicio) & (df.FECHA_UTC>=start_time)]
+#df = df[df.FECHA_UTC_NEW<start_time]
+df = df[(df.MAGNITUD>=magnitudInicio) & (df.FECHA_UTC_NEW<start_time)]
 #df = df.query(queryTime)
 
 
