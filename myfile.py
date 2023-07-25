@@ -41,4 +41,4 @@ else:
 st.map(df,color='MAGNITUD')
 
 #Fuente:
-st.write("Fuente: (Catálogo Sísmico del Perú de 1960 a 2021.)[https://www.datosabiertos.gob.pe/dataset/catalogo-sismico-1960-2021-igp"])
+st.write("Fuente: Catálogo Sísmico del Perú de 1960 a 2021.[https://www.datosabiertos.gob.pe/dataset/catalogo-sismico-1960-2021-igp")
