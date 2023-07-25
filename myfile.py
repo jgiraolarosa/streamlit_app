@@ -5,7 +5,7 @@ from datetime import time
 from datetime import datetime
 
 st.title("Sismos en Perú de 1960-2021")
-
+st.write("En esta página podrá visualizar la ubicación y profundidad de los sismos ocurridos segun la magnitud y periodo seleccionado.")
 #Lectura del dataframe
 df = pd.read_excel('/app/streamlit_app/Catalogo1960_2021.xlsx')
 
@@ -17,8 +17,8 @@ magInicio, magFin = st.select_slider("Magnitud:", options=magnitudPosible, value
 fechaInicio = datetime(1960, 1, 1)
 fechaFin = datetime(2021, 12, 31)
 start_time, end_time = st.slider("Fechas:", fechaInicio, fechaFin, value=(fechaInicio,fechaFin))
-st.write("Fecha inicio seleccionada:", start_time)
-st.write("Fecha fin seleccionada:", end_time)
+#st.write("Fecha inicio seleccionada:", start_time)
+#st.write("Fecha fin seleccionada:", end_time)
 #queryTime = "FECHA_UTC >= " + str(start_time)
 
 def iguala_formato(fecha_numero):
@@ -33,6 +33,10 @@ df = df[(df.MAGNITUD>=magInicio) & (df.MAGNITUD<=magFin) & (df.FECHA_UTC_NEW>=st
 #df = df[df.MAGNITUD>=magInicio & df.MAGNITUD<=magFin & df.FECHA_UTC_NEW<start_time]
 #df = df.query(queryTime)
 
+if magInicio == magFin:
+    st.write("Se muestran los sismos de magnitud ", magInicio)
+else:
+    st.write("Se muestran los sismos en el rango de magnitud ", magInicio, " y ", magFin, "ocurridos entre", start_time, "a", end_time)
 #Mostrar mapa
 st.map(df)
 
