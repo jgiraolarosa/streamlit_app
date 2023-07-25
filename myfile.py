@@ -11,7 +11,7 @@ df = pd.read_excel('/app/streamlit_app/Catalogo1960_2021.xlsx')
 
 #Magnitud
 magnitudPosible = [3,4,5,6,7,8,9]
-magInicio, magFin = st.select_slider("Magnitud del sismo:", options=magnitudPosible, value=(3,9))
+magInicio, magFin = st.select_slider("Magnitud:", options=magnitudPosible, value=(3,9))
 
 #Fecha
 fechaInicio = datetime(1960, 1, 1)
