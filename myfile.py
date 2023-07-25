@@ -16,9 +16,9 @@ magnitudFin = st.slider("Magnitud fin:", magnitudInicio, 9, step=1)
 queryMagnitud = "MAGNITUD >= " + str(magnitudInicio)
 #df = df.query("MAGNITUD >= {}".format(magnitudInicio))
 
-#Nueva Magnitud
+#Magnitud
 magnitudPosible = [3,4,5,6,7,8,9]
-magInicio, magFin = st.select_slider("Selecciona magnitud de inicio y fin:", options=magnitudPosible, value=(3,9))
+magInicio, magFin = st.select_slider("Magnitud del sismo:", options=magnitudPosible, value=(3,9))
 
 #Fecha
 start_time = st.slider("Fechas:", datetime(1960, 1, 1), datetime(2021, 12, 31))
@@ -34,7 +34,7 @@ df['FECHA_UTC_NEW']=df['FECHA_UTC'].apply(iguala_formato)
 
 #df = df[(df.MAGNITUD>=magnitudInicio)]
 #df = df[df.FECHA_UTC_NEW<start_time]
-df = df[(df.MAGNITUD>=magnitudInicio) & (df.FECHA_UTC_NEW<start_time)]
+df = df[df.MAGNITUD>=magInicio & df.MAGNITUD<=magFin & df.FECHA_UTC_NEW<start_time]
 #df = df.query(queryTime)
 
 
