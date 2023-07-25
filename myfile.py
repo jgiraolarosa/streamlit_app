@@ -16,15 +16,10 @@ magnitudFin = st.slider("Magnitud fin:", magnitudInicio, 9, step=1)
 queryMagnitud = "MAGNITUD >= " + str(magnitudInicio)
 #df = df.query("MAGNITUD >= {}".format(magnitudInicio))
 
-
-
-
-
-start_time = st.slider("FECHA UTC",datetime(1960, 1, 1),datetime(2022, 1, 1))
-st.write("Fecha seleccionada:", start_time)
-
+#Fecha
+start_time = st.slider("Fechas:", datetime(1960, 1, 1), datetime(2022, 1, 1))
+#st.write("Fecha seleccionada:", start_time)
 queryTime = "FECHA_UTC >= " + str(start_time)
-
 
 def iguala_formato(fecha_numero):
     string=str(fecha_numero)
