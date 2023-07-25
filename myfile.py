@@ -40,7 +40,7 @@ def iguala_formato(fecha_numero):
 df['FECHA_UTC_NEW']=df['FECHA_UTC'].apply(iguala_formato)
 st.write(df['FECHA_UTC_NEW'])
 
-#df = df[(df.MAGNITUD>=magnitudInicio)]
+df = df[(df.MAGNITUD>=magnitudInicio)]
 #df = df[(iguala_formato(df.FECHA_UTC)<datetime.now())]
 #df = df[(df.MAGNITUD>=magnitudInicio) & (df.FECHA_UTC>=start_time)]
 #df = df.query(queryTime)
