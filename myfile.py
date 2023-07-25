@@ -35,7 +35,8 @@ def iguala_formato(string):
     mi_formato = string[:4]+"-"+string[4:6]+"-"+string[6:]
     return datetime(mi_formato)
 
-st.write(iguala_formato(df['FECHA_UTC']))
+df['FECHA_UTC_NEW']=df['FECHA_UTC'].apply(iguala_formato)
+st.write(df['FECHA_UTC_NEW'])
 
 #df = df[(df.MAGNITUD>=magnitudInicio)]
 #df = df[(iguala_formato(df.FECHA_UTC)<datetime.now())]
