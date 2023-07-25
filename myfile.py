@@ -24,13 +24,13 @@ queryMagnitud = "MAGNITUD >= " + str(magnitudInicio)
 
 
 
-start_time = st.slider("Ver casos ocurridos en",datetime(1960, 1, 1),datetime(2022, 1, 1))
+start_time = st.slider("FECHA UTC",datetime(1960, 1, 1),datetime(2022, 1, 1))
 st.write("Fecha seleccionada:", start_time)
 
 queryTime = "FECHA_UTC >= " + str(start_time)
 
 
-df = df.query(queryMagnitud,queryTime)
+df = df.query(queryMagnitud and queryTime)
 #df = df.query(queryTime)
 
 
