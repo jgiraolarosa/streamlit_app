@@ -31,7 +31,7 @@ queryTime = "FECHA_UTC >= " + str(start_time)
 
 
 #df = df[(df.MAGNITUD>=magnitudInicio)]
-df = df[(datetime(df.FECHA_UTC)>=datetime(start_time))]
+df = df[(datetime(df.FECHA_UTC)<datetime.now())]
 #df = df[(df.MAGNITUD>=magnitudInicio) & (df.FECHA_UTC>=start_time)]
 #df = df.query(queryTime)
 
