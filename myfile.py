@@ -15,8 +15,9 @@ magInicio, magFin = st.select_slider("Magnitud del sismo:", options=magnitudPosi
 
 #Fecha
 start_time, end_time = st.slider("Fechas:", datetime(1960, 1, 1), datetime(2021, 12, 31), value=(datetime(1960, 1, 1),datetime(2021, 12, 31)))
-#st.write("Fecha seleccionada:", start_time)
-queryTime = "FECHA_UTC >= " + str(start_time)
+st.write("Fecha inicio seleccionada:", start_time)
+st.write("Fecha fin seleccionada:", end_time)
+#queryTime = "FECHA_UTC >= " + str(start_time)
 
 def iguala_formato(fecha_numero):
     string=str(fecha_numero)
