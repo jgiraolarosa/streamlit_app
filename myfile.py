@@ -35,3 +35,6 @@ df = df[(df.MAGNITUD>=magInicio) & (df.MAGNITUD<=magFin) & (df.FECHA_UTC_NEW>=st
 
 #Mostrar mapa
 st.map(df)
+
+#Fuente:
+st.write("Fuente: [Catálogo Sísmico del Perú de 1960 a 2021.](https://www.datosabiertos.gob.pe/dataset/catalogo-sismico-1960-2021-igp")
