@@ -24,7 +24,7 @@ queryMagnitud = "MAGNITUD >= " + str(magnitudInicio)
 
 
 
-start_time = st.slider("Ver casos ocurridos en",value=datetime(1960, 1, 1),value=datetime(2022, 1, 1))
+start_time = st.slider("Ver casos ocurridos en",value=datetime(1960, 1, 1),value1=datetime(2022, 1, 1))
 st.write("Fecha seleccionada:", start_time)
 
 queryTime = "FECHA_UTC >= " + str(start_time)
