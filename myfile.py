@@ -5,7 +5,7 @@ from datetime import time
 from datetime import datetime
 
 st.title("Sismos en Perú de 1960-2021")
-st.write("En esta página podrá visualizar la ubicación y profundidad de los sismos ocurridos segun la magnitud y periodo seleccionado.")
+st.write("En esta página podrá visualizar la ubicación y profundidad de los sismos ocurridos entre 1960 a 2021. A continuación, seleccione la magnitud y periodo de ocurrencia para visualizarlos en el mapa.")
 #Lectura del dataframe
 df = pd.read_excel('/app/streamlit_app/Catalogo1960_2021.xlsx')
 
