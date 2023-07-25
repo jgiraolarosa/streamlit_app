@@ -7,6 +7,7 @@ from datetime import datetime
 st.title("Título del proyecto Jorge 2")
 st.write("Hola, ¿**cómo** estás?")
 st.write("Bien")
+st.write("Hola, ¿**cómo** estás?")
 
 
 
@@ -24,7 +25,7 @@ queryMagnitud = "MAGNITUD >= " + str(magnitudInicio)
 print(df['FECHA_UTC'])
 
 
-start_time = st.slider("FECHA  UTC",datetime(1960, 1, 1),datetime(2022, 1, 1))
+start_time = st.slider("FECHA UTC",datetime(1960, 1, 1),datetime(2022, 1, 1))
 st.write("Fecha seleccionada:", start_time)
 
 queryTime = "FECHA_UTC >= " + str(start_time)
