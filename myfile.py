@@ -43,4 +43,4 @@ print(df['FECHA_UTC'])
 
 
 #Mostrar mapa
-st.map(df)
+#st.map(df)
