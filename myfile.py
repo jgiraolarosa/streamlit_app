@@ -39,7 +39,7 @@ if magInicio == magFin:
 else:
     st.write("Se muestran los sismos en el rango de magnitud ", magInicio, " y ", magFin, "ocurridos entre", start_time, "a", end_time)
 #Mostrar mapa
-st.map(df)
+st.map(df, size="MAGNITUD")
 st.write("Datos de los terremotos ocurridos")
 st.dataframe(df2)
 #Fuente:
