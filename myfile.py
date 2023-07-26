@@ -32,6 +32,7 @@ df['FECHA_UTC_NEW']=df['FECHA_UTC'].apply(iguala_formato)
 df = df[(df.MAGNITUD>=magInicio) & (df.MAGNITUD<=magFin) & (df.FECHA_UTC_NEW>=start_time) & (df.FECHA_UTC_NEW<=end_time)]
 #df = df[df.MAGNITUD>=magInicio & df.MAGNITUD<=magFin & df.FECHA_UTC_NEW<start_time]
 #df = df.query(queryTime)
+df2 = df[(df.MAGNITUD>=magInicio) & (df.MAGNITUD<=magFin) & (df.FECHA_UTC_NEW>=start_time) & (df.FECHA_UTC_NEW<=end_time)]
 
 if magInicio == magFin:
     st.write("Se muestran los sismos de magnitud ", magInicio,"ocurridos entre", start_time, "a", end_time)
@@ -40,6 +41,6 @@ else:
 #Mostrar mapa
 st.map(df)
 st.write("Datos de los terremotos ocurridos")
-st.dataframe(df)
+st.dataframe(df2)
 #Fuente:
 st.write("Fuente: Catálogo Sísmico del Perú de 1960 a 2021.[https://www.datosabiertos.gob.pe/dataset/catalogo-sismico-1960-2021-igp")
