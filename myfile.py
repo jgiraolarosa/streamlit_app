@@ -39,6 +39,7 @@ else:
     st.write("Se muestran los sismos en el rango de magnitud ", magInicio, " y ", magFin, "ocurridos entre", start_time, "a", end_time)
 #Mostrar mapa
 st.map(df)
-
+st.write("Datos de los terremotos ocurridos")
+st.dataframe(df)
 #Fuente:
 st.write("Fuente: Catálogo Sísmico del Perú de 1960 a 2021.[https://www.datosabiertos.gob.pe/dataset/catalogo-sismico-1960-2021-igp")
