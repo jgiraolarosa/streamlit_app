@@ -29,7 +29,7 @@ def only_year(fecha_numero):
     return dt_object.date()
 
 #Color
-def highlight_color(val):
+def color(point):
     if point < 4:
         string="#f4d166"
     elif point <5:
