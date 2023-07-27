@@ -49,7 +49,8 @@ df['FECHA_UTC_NEW']=df['FECHA_UTC'].apply(iguala_formato)
 df['FECHA']=df['FECHA_UTC'].apply(only_year)
 df['HORA_UTC_NEW']=df['HORA_UTC'].apply(format_time)
 
-df['MAGNITUD_SIZE'] = df['MAGNITUD'] * 100
+#Tamaño de los puntos
+df['MAGNITUD_SIZE'] = df['MAGNITUD']*1000
 
 #DF para el mapa
 df = df[(df.MAGNITUD>=magInicio) & (df.MAGNITUD<=magFin) & (df.FECHA_UTC_NEW>=start_time) & (df.FECHA_UTC_NEW<=end_time)]
