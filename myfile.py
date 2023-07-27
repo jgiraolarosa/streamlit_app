@@ -30,7 +30,7 @@ def only_year(fecha_numero):
 
 #Color
 def highlight_color(val):
-        if point < 4:
+    if point < 4:
         string="#f4d166"
     elif point <5:
         string="#f5c35c"
