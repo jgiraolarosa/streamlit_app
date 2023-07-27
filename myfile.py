@@ -34,10 +34,17 @@ df = df[(df.MAGNITUD>=magInicio) & (df.MAGNITUD<=magFin) & (df.FECHA_UTC_NEW>=st
 #df = df.query(queryTime)
 df2 = df[(df.MAGNITUD>=magInicio) & (df.MAGNITUD<=magFin) & (df.FECHA_UTC_NEW>=start_time) & (df.FECHA_UTC_NEW<=end_time)]
 df2 = df2.drop(["ID","FECHA_UTC","HORA_UTC","FECHA_CORTE"],axis=1)
+
 if magInicio == magFin:
-    st.write("Se muestran los sismos de magnitud ", magInicio,"ocurridos entre", start_time, "a", end_time)
+    if df.empty:
+        st.write("No ha ocurrido actividad aísmica de magnitud", magInicio, " entre", start_time, "a", end_time)
+    else:
+        st.write("Se muestran los sismos de magnitud ", magInicio,"ocurridos entre", start_time, "a", end_time)
 else:
-    st.write("Se muestran los sismos en el rango de magnitud ", magInicio, " y ", magFin, "ocurridos entre", start_time, "a", end_time)
+    if df.empty:
+        st.write("No ha ocurrido actividad aísmica en el rango de magnitud", magInicio, " y ", magFin, " entre", start_time, "a", end_time)
+    else:
+        st.write("Se muestran los sismos en el rango de magnitud ", magInicio, " y ", magFin, "ocurridos entre", start_time, "a", end_time)
 #Mostrar mapa
 st.map(df, size="MAGNITUD")
 st.write("Datos de los terremotos ocurridos")
