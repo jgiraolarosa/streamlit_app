@@ -4,6 +4,30 @@ import numpy as np
 from datetime import time
 from datetime import datetime
 
+#Formato de fecha y hora para el query
+def iguala_formato(fecha_numero):
+    string=str(fecha_numero)
+    return datetime(int(string[:4]),int(string[4:6]),int(string[6:]))
+
+#Formato de hora
+def format_time(hora):
+    string = str(hora)
+    input_str = string.zfill(6)
+    # Extracting hours, minutes, and seconds from the input string
+    hours = int(input_str[:2])
+    minutes = int(input_str[2:4])
+    seconds = int(input_str[4:6])
+
+    # Formatting the time as "HH:MM:SS"
+    formatted_time = f"{hours:02d}:{minutes:02d}:{seconds:02d}"
+    return formatted_time
+
+#Formato de fecha
+def only_year(fecha_numero):
+    string = str(fecha_numero)
+    dt_object = datetime(int(string[:4]), int(string[4:6]), int(string[6:]))
+    return dt_object.date()
+    
 st.title("Sismos en Perú de 1960-2021")
 st.write("En esta página, podrá visualizar la ubicación y profundidad de los sismos percibidos por la población y registrados por la Red Sísmica Nacional entre 1960 a 2021. La información ha sido obtenido a partir del catálogo elaborado por el Instituto Geofísico del Perú (IGP), institución responsable del monitoreo de la actividad sísmica en el país.") 
 st.write("A continuación, seleccione la magnitud y periodo de ocurrencia para visualizar la actividad sísmica en el mapa.")
@@ -19,48 +43,23 @@ magInicio, magFin = st.select_slider("Magnitud:", options=magnitudPosible, value
 fechaInicio = datetime(1960, 1, 1)
 fechaFin = datetime(2021, 12, 31)
 start_time, end_time = st.slider("Fechas:", fechaInicio, fechaFin, value=(fechaInicio,fechaFin))
-#st.write("Fecha inicio seleccionada:", start_time)
-#st.write("Fecha fin seleccionada:", end_time)
-#queryTime = "FECHA_UTC >= " + str(start_time)
 
-def only_year(fecha_numero):
-    string = str(fecha_numero)
-    dt_object = datetime(int(string[:4]), int(string[4:6]), int(string[6:]))
-    return dt_object.date()
-
-def iguala_formato(fecha_numero):
-    string=str(fecha_numero)
-    return datetime(int(string[:4]),int(string[4:6]),int(string[6:]))
-
-def format_time(hora):
-    string = str(hora)
-    input_str = string.zfill(6)
-    # Extracting hours, minutes, and seconds from the input string
-    hours = int(input_str[:2])
-    minutes = int(input_str[2:4])
-    seconds = int(input_str[4:6])
-
-    # Formatting the time as "HH:MM:SS"
-    formatted_time = f"{hours:02d}:{minutes:02d}:{seconds:02d}"
-    return formatted_time
-
+#Ajustando los formatos de fecha y hora
 df['FECHA_UTC_NEW']=df['FECHA_UTC'].apply(iguala_formato)
 df['FECHA']=df['FECHA_UTC'].apply(only_year)
 df['HORA_UTC_NEW']=df['HORA_UTC'].apply(format_time)
 
 df['MAGNITUD_SIZE'] = df['MAGNITUD'] * 100
 
-#st.write(df['FECHA_UTC_NEW'])
-
-#df = df[df.FECHA_UTC_NEW<start_time]
+#DF para el mapa
 df = df[(df.MAGNITUD>=magInicio) & (df.MAGNITUD<=magFin) & (df.FECHA_UTC_NEW>=start_time) & (df.FECHA_UTC_NEW<=end_time)]
-#df = df[df.MAGNITUD>=magInicio & df.MAGNITUD<=magFin & df.FECHA_UTC_NEW<start_time]
-#df = df.query(queryTime)
 
+#DF para la tabla
 df2 = df[(df.MAGNITUD>=magInicio) & (df.MAGNITUD<=magFin) & (df.FECHA_UTC_NEW>=start_time) & (df.FECHA_UTC_NEW<=end_time)]
 df2 = df2.drop(["ID","FECHA_UTC","FECHA_UTC_NEW","HORA_UTC","FECHA_CORTE","MAGNITUD_SIZE"],axis=1)
 df2 = df2.rename(columns={'HORA_UTC_NEW': 'HORA'})
 
+#Descripción de la información mostrada
 if magInicio == magFin:
     if df.empty:
         st.write("No ha ocurrido actividad sísmica de magnitud", magInicio, " entre", start_time, "a", end_time,".")
@@ -78,5 +77,6 @@ else:
 st.map(df, size='MAGNITUD_SIZE')
 st.write("Datos de la actividad sísmica ocurrida:")
 st.dataframe(df2, hide_index= True)
+
 #Fuente:
 st.write("Fuente: Catálogo Sísmico del Perú de 1960 a 2021. Link de acceso: https://www.datosabiertos.gob.pe/dataset/catalogo-sismico-1960-2021-igp")
