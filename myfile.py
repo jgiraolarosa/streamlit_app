@@ -44,7 +44,7 @@ def color(point):
         string='CD3E43'
     else:
         string='B71D3E'
-return string
+    return string
 
 st.title("Sismos en Perú de 1960-2021")
 st.write("En esta página, podrá visualizar la ubicación y profundidad de los sismos percibidos por la población y registrados por la Red Sísmica Nacional entre 1960 a 2021. La información ha sido obtenido a partir del catálogo elaborado por el Instituto Geofísico del Perú (IGP), institución responsable del monitoreo de la actividad sísmica en el país.") 
