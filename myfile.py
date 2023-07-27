@@ -47,7 +47,7 @@ def format_time(hora):
 df['FECHA_UTC_NEW']=df['FECHA_UTC'].apply(iguala_formato)
 df['HORA_UTC_NEW']=df['HORA_UTC'].apply(format_time)
 
-df['MAGNITUD_SIZE'] = df['MAGNITUD'] * 5
+df['MAGNITUD_SIZE'] = df['MAGNITUD'] * 100
 
 #st.write(df['FECHA_UTC_NEW'])
 #print(type(df.iloc["MAGNITUD"])
