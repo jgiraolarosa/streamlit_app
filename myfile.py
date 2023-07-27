@@ -27,7 +27,7 @@ def iguala_formato(fecha_numero):
     
 df['FECHA_UTC_NEW']=df['FECHA_UTC'].apply(iguala_formato)
 #st.write(df['FECHA_UTC_NEW'])
-print(type(df.iloc["MAGNITUD")
+print(type(df.iloc["MAGNITUD"])
 #df = df[df.FECHA_UTC_NEW<start_time]
 df = df[(df.MAGNITUD>=magInicio) & (df.MAGNITUD<=magFin) & (df.FECHA_UTC_NEW>=start_time) & (df.FECHA_UTC_NEW<=end_time)]
 #df = df[df.MAGNITUD>=magInicio & df.MAGNITUD<=magFin & df.FECHA_UTC_NEW<start_time]
