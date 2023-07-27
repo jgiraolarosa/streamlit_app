@@ -45,7 +45,7 @@ def format_time(hora):
     return formatted_time
 
 df['FECHA_UTC_NEW']=df['FECHA_UTC'].apply(iguala_formato)
-df['YEAR']=df['FECHA_UTC'].apply(only_year)
+df['FECHA']=df['FECHA_UTC'].apply(only_year)
 df['HORA_UTC_NEW']=df['HORA_UTC'].apply(format_time)
 
 df['MAGNITUD_SIZE'] = df['MAGNITUD'] * 100
@@ -59,18 +59,19 @@ df = df[(df.MAGNITUD>=magInicio) & (df.MAGNITUD<=magFin) & (df.FECHA_UTC_NEW>=st
 
 df2 = df[(df.MAGNITUD>=magInicio) & (df.MAGNITUD<=magFin) & (df.FECHA_UTC_NEW>=start_time) & (df.FECHA_UTC_NEW<=end_time)]
 df2 = df2.drop(["ID","FECHA_UTC","FECHA_UTC_NEW","HORA_UTC","FECHA_CORTE","MAGNITUD_SIZE"],axis=1)
+df2 = df2.rename(columns={'HORA_UTC_NEW': 'HORA'})
 
 if magInicio == magFin:
     if df.empty:
-        st.write("No ha ocurrido actividad sísmica de magnitud", magInicio, " entre", start_time, "a", end_time)
+        st.write("No ha ocurrido actividad sísmica de magnitud", magInicio, " entre", start_time, "a", end_time,".")
     else:
-        st.write("Se muestran los sismos de magnitud ", magInicio,"ocurridos entre", start_time, "a", end_time)
+        st.write("Se muestran los sismos de magnitud ", magInicio,"ocurridos entre", start_time, "a", end_time,".")
         st.write ("Se ha registrado ", df2.shape[0], " sismos en total durante el periodo seleccionado.")
 else:
     if df.empty:
-        st.write("No ha ocurrido actividad sísmica en el rango de magnitud", magInicio, " y ", magFin, " entre", start_time, "a", end_time)
+        st.write("No ha ocurrido actividad sísmica en el rango de magnitud", magInicio, " y ", magFin, " entre", start_time, "a", end_time,".")
     else:
-        st.write("Se muestran los sismos en el rango de magnitud ", magInicio, " y ", magFin, "ocurridos entre", start_time, "a", end_time)
+        st.write("Se muestran los sismos en el rango de magnitud ", magInicio, " y ", magFin, "ocurridos entre", start_time, "a", end_time,".")
         st.write ("Se ha registrado ", df2.shape[0], " sismos en total durante el periodo seleccionado.")
 
 #Mostrar mapa
