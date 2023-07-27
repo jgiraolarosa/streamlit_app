@@ -49,6 +49,7 @@ df = df[(df.MAGNITUD>=magInicio) & (df.MAGNITUD<=magFin) & (df.FECHA_UTC_NEW>=st
 #df = df.query(queryTime)
 
 df2 = df[(df.MAGNITUD>=magInicio) & (df.MAGNITUD<=magFin) & (df.FECHA_UTC_NEW>=start_time) & (df.FECHA_UTC_NEW<=end_time)]
+df2['FECHA_UTC_NEW'] = df['FECHA_UTC_NEW'].str.split(' ').str[0]
 df2 = df2.drop(["ID","FECHA_UTC","HORA_UTC","FECHA_CORTE"],axis=1)
 
 if magInicio == magFin:
