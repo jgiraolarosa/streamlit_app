@@ -31,19 +31,19 @@ def only_year(fecha_numero):
 #Color
 def color(point):
     if point < 4:
-        string='#F40166'
+        string='#f40166'
     elif point <5:
-        string='#F5C35C'
+        string='#f5c35c'
     elif point < 6:
-        string='#FA904F'
+        string='#fa904f'
     elif point < 7:
-        string='#EE704A'
+        string='#ee704a'
     elif point < 8:
-        string='#E05B48'
+        string='#e05b48'
     elif point < 9:
-        string='#CD3E43'
+        string='#cd3e43'
     else:
-        string='#B71D3E'
+        string='#b71d3E'
     return string
 
 st.title("Sismos en Perú de 1960-2021")
