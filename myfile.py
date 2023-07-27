@@ -27,10 +27,11 @@ def iguala_formato(fecha_numero):
 
 def format_time(hora):
     string = str(hora)
+    input_str = string.zfill(6)
     # Extracting hours, minutes, and seconds from the input string
-    hours = int(string[:2])
-    minutes = int(string[2:4])
-    seconds = int(string[4:6])
+    hours = int(input_str[:2])
+    minutes = int(input_str[2:4])
+    seconds = int(input_str[4:6])
 
     # Formatting the time as "HH:MM:SS"
     formatted_time = f"{hours:02d}:{minutes:02d}:{seconds:02d}"
