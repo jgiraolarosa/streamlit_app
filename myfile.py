@@ -47,6 +47,8 @@ def format_time(hora):
 df['FECHA_UTC_NEW']=df['FECHA_UTC'].apply(iguala_formato)
 df['HORA_UTC_NEW']=df['HORA_UTC'].apply(format_time)
 
+df['MAGNITUD_SIZE'] = df['MAGNITUD'] * 5
+
 #st.write(df['FECHA_UTC_NEW'])
 #print(type(df.iloc["MAGNITUD"])
 
@@ -56,7 +58,7 @@ df = df[(df.MAGNITUD>=magInicio) & (df.MAGNITUD<=magFin) & (df.FECHA_UTC_NEW>=st
 #df = df.query(queryTime)
 
 df2 = df[(df.MAGNITUD>=magInicio) & (df.MAGNITUD<=magFin) & (df.FECHA_UTC_NEW>=start_time) & (df.FECHA_UTC_NEW<=end_time)]
-df2 = df2.drop(["ID","FECHA_UTC","HORA_UTC","FECHA_CORTE"],axis=1)
+df2 = df2.drop(["ID","FECHA_UTC","HORA_UTC","FECHA_CORTE","MAGNITUD_SIZE"],axis=1)
 
 if magInicio == magFin:
     if df.empty:
