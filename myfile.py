@@ -21,14 +21,9 @@ start_time, end_time = st.slider("Fechas:", fechaInicio, fechaFin, value=(fechaI
 #st.write("Fecha fin seleccionada:", end_time)
 #queryTime = "FECHA_UTC >= " + str(start_time)
 
-#def iguala_formato(fecha_numero):
-#    string=str(fecha_numero)
-#    return datetime(int(string[:4]),int(string[4:6]),int(string[6:]))
-
 def iguala_formato(fecha_numero):
-    string = str(fecha_numero)
-    dt_object = datetime(int(string[:4]), int(string[4:6]), int(string[6:]))
-    return dt_object.date()
+    string=str(fecha_numero)
+    return datetime(int(string[:4]),int(string[4:6]),int(string[6:]))
 
 def format_time(hora):
     string = str(hora)
@@ -42,7 +37,8 @@ def format_time(hora):
     return formatted_time
 
 df['FECHA_UTC_NEW']=df['FECHA_UTC'].apply(iguala_formato)
-df['HORA_UTC_NEW'] = df['HORA_UTC'].apply(format_time)
+df['HORA_UTC_NEW']=df['HORA_UTC'].apply(format_time)
+
 #st.write(df['FECHA_UTC_NEW'])
 #print(type(df.iloc["MAGNITUD"])
 
