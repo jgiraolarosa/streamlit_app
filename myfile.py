@@ -31,9 +31,6 @@ def iguala_formato(fecha_numero):
     return dt_object.date()
 
 def format_time(input_str):
-    # Padding the input string to ensure it has at least 6 characters
-    input_str = input_str.zfill(6)
-
     # Extracting hours, minutes, and seconds from the input string
     hours = int(input_str[:2])
     minutes = int(input_str[2:4])
