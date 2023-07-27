@@ -46,10 +46,6 @@ def color(point):
         string='#f40166'
     return string
 
-def highlight_color(val):
-    color_df = f'background-color: {val}; color: black;'
-    return color_df
-
 st.title("Sismos en Perú de 1960-2021")
 st.write("En esta página, podrá visualizar la ubicación y profundidad de los sismos percibidos por la población y registrados por la Red Sísmica Nacional entre 1960 a 2021. La información ha sido obtenido a partir del catálogo elaborado por el Instituto Geofísico del Perú (IGP), institución responsable del monitoreo de la actividad sísmica en el país.") 
 st.write("A continuación, seleccione la magnitud y periodo de ocurrencia para visualizar la actividad sísmica en el mapa.")
@@ -74,7 +70,7 @@ df['HORA_UTC_NEW']=df['HORA_UTC'].apply(format_time)
 df['COLOR'] = df['MAGNITUD'].apply(color)
 
 #Tamaño de los puntos
-df['MAGNITUD_SIZE'] = df['MAGNITUD']*9
+df['MAGNITUD_SIZE'] = df['MAGNITUD']*10
 
 #DF para el mapa
 df = df[(df.MAGNITUD>=magInicio) & (df.MAGNITUD<=magFin) & (df.FECHA_UTC_NEW>=start_time) & (df.FECHA_UTC_NEW<=end_time)]
@@ -103,10 +99,8 @@ else:
 st.map(df, size="MAGNITUD_SIZE", color="COLOR")
 st.write("Datos de la actividad sísmica ocurrida:")
 
-styled_df = df2.style.applymap(highlight_color, subset=['Color'])
-
 #Mostrar base de datos
-st.dataframe(styled_df, hide_index= True, use_container_width=True)
+st.dataframe(df2, hide_index= True, use_container_width=True)
 
 #Fuente:
 st.write("Fuente: Catálogo Sísmico del Perú de 1960 a 2021. Link de acceso: https://www.datosabiertos.gob.pe/dataset/catalogo-sismico-1960-2021-igp")
