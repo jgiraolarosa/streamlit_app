@@ -51,7 +51,6 @@ df['HORA_UTC_NEW']=df['HORA_UTC'].apply(format_time)
 df['MAGNITUD_SIZE'] = df['MAGNITUD'] * 100
 
 #st.write(df['FECHA_UTC_NEW'])
-#print(type(df.iloc["MAGNITUD"])
 
 #df = df[df.FECHA_UTC_NEW<start_time]
 df = df[(df.MAGNITUD>=magInicio) & (df.MAGNITUD<=magFin) & (df.FECHA_UTC_NEW>=start_time) & (df.FECHA_UTC_NEW<=end_time)]
@@ -63,14 +62,20 @@ df2 = df2.drop(["ID","FECHA_UTC","FECHA_UTC_NEW","HORA_UTC","FECHA_CORTE","MAGNI
 
 if magInicio == magFin:
     if df.empty:
-        st.write("No ha ocurrido actividad aísmica de magnitud", magInicio, " entre", start_time, "a", end_time)
+        st.write("No ha ocurrido actividad sísmica de magnitud", magInicio, " entre", start_time, "a", end_time)
     else:
         st.write("Se muestran los sismos de magnitud ", magInicio,"ocurridos entre", start_time, "a", end_time)
 else:
     if df.empty:
-        st.write("No ha ocurrido actividad aísmica en el rango de magnitud", magInicio, " y ", magFin, " entre", start_time, "a", end_time)
+        st.write("No ha ocurrido actividad sísmica en el rango de magnitud", magInicio, " y ", magFin, " entre", start_time, "a", end_time)
     else:
         st.write("Se muestran los sismos en el rango de magnitud ", magInicio, " y ", magFin, "ocurridos entre", start_time, "a", end_time)
+
+if df.empty:
+    st.write ("Se han registrado 0 sismos ocurridos entre", start_time, "a", end_time)
+else:
+    st.write ("Se han registrado ", df2.shape[0], " sismos ocurridos entre", start_time, "a", end_time)
+
 #Mostrar mapa
 st.map(df, size='MAGNITUD_SIZE')
 st.write("Datos de la actividad sísmica ocurrida:")
