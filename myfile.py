@@ -27,7 +27,25 @@ def only_year(fecha_numero):
     string = str(fecha_numero)
     dt_object = datetime(int(string[:4]), int(string[4:6]), int(string[6:]))
     return dt_object.date()
-    
+
+#Color
+def color(point):
+    if point < 4:
+        string='F40166'
+    elif point <5:
+        string='F5C35C'
+    elif point < 6:
+        string='FA904F'
+    elif point < 7:
+        string='EE704A'
+    elif point < 8:
+        string='E05B48'
+    elif point < 9:
+        string='CD3E43'
+    else:
+        string='B71D3E'
+return string
+
 st.title("Sismos en Perú de 1960-2021")
 st.write("En esta página, podrá visualizar la ubicación y profundidad de los sismos percibidos por la población y registrados por la Red Sísmica Nacional entre 1960 a 2021. La información ha sido obtenido a partir del catálogo elaborado por el Instituto Geofísico del Perú (IGP), institución responsable del monitoreo de la actividad sísmica en el país.") 
 st.write("A continuación, seleccione la magnitud y periodo de ocurrencia para visualizar la actividad sísmica en el mapa.")
@@ -48,6 +66,8 @@ start_time, end_time = st.slider("Fechas:", fechaInicio, fechaFin, value=(fechaI
 df['FECHA_UTC_NEW']=df['FECHA_UTC'].apply(iguala_formato)
 df['FECHA']=df['FECHA_UTC'].apply(only_year)
 df['HORA_UTC_NEW']=df['HORA_UTC'].apply(format_time)
+
+df['COLOR'] = df['MAGNITUD'].apply(color)
 
 #Tamaño de los puntos
 df['MAGNITUD_SIZE'] = df['MAGNITUD']*1000
