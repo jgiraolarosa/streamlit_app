@@ -25,7 +25,7 @@ start_time, end_time = st.slider("Fechas:", fechaInicio, fechaFin, value=(fechaI
 
 d = st.date_input("Fecha de sismo", datetime.date(YYYY, MM, DD))
 
-st.write('Tu cumpleaños es:", d)
+st.write('Tu cumpleaños es:', d)
          
 def iguala_formato(fecha_numero):
     string=str(fecha_numero)
