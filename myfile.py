@@ -5,7 +5,7 @@ from datetime import time
 from datetime import datetime
 
 st.title("Sismos en Perú de 1960-2021")
-st.write("En esta página podrá visualizar la ubicación y profundidad de los sismos ocurridos entre 1960 a 2021. A continuación, seleccione la magnitud y periodo de ocurrencia para visualizarlos en el mapa.")
+st.write("En esta página, podrá visualizar la ubicación y profundidad de los sismos percibidos por la población y registrados por la Red Sísmica Nacional entre 1960 a 2021. La información ha sido obtenido a partir del catálogo elaborado por el Instituto Geofísico del Perú (IGP), institución responsable del monitoreo de la actividad sísmica en el país, A continuación, seleccione la magnitud y periodo de ocurrencia para visualizar la actividad sísmica en el mapa.")
 #Lectura del dataframe
 df = pd.read_excel('/app/streamlit_app/Catalogo1960_2021.xlsx')
 
@@ -27,7 +27,7 @@ def iguala_formato(fecha_numero):
     
 df['FECHA_UTC_NEW']=df['FECHA_UTC'].apply(iguala_formato)
 #st.write(df['FECHA_UTC_NEW'])
-
+print(type(df.iloc["MAGNITUD")
 #df = df[df.FECHA_UTC_NEW<start_time]
 df = df[(df.MAGNITUD>=magInicio) & (df.MAGNITUD<=magFin) & (df.FECHA_UTC_NEW>=start_time) & (df.FECHA_UTC_NEW<=end_time)]
 #df = df[df.MAGNITUD>=magInicio & df.MAGNITUD<=magFin & df.FECHA_UTC_NEW<start_time]
