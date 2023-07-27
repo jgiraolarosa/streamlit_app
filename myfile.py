@@ -27,8 +27,7 @@ start_time, end_time = st.slider("Fechas:", fechaInicio, fechaFin, value=(fechaI
 
 def iguala_formato(fecha_numero):
     string = str(fecha_numero)
-    dt_object = datetime(int(string[:4]), int(string[4:6]), int(string[6:]))
-    return dt_object.date()
+    return datetime(int(string[:4]), int(string[4:6]), int(string[6:]))
 
 def format_time(input_str):
     # Padding the input string to ensure it has at least 6 characters
