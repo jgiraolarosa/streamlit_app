@@ -46,9 +46,9 @@ def color(point):
         string='#f40166'
     return string
 
-st.title("Sismos en Perú de 1960-2021-a")
+st.title("Sismos en Perú de 1960-2021")
 st.write("En esta página, podrá visualizar la ubicación y profundidad de los sismos percibidos por la población y registrados por la Red Sísmica Nacional entre 1960 a 2021. La información ha sido obtenido a partir del catálogo elaborado por el Instituto Geofísico del Perú (IGP), institución responsable del monitoreo de la actividad sísmica en el país.") 
-st.write("A continuación, seleccione la magnitud y periodo de ocurrencia para visualizar la actividad sísmica en el mapa.")
+st.write("A continuación, seleccione la magnitud y periodo de ocurrencia para visualizar la actividad sísmica en el mapa. Se representará los sismos de menor a mayor magnitud en una gradiente de amarillo a rojo, respectivamente.")
 
 #Lectura del dataframe
 df = pd.read_excel('/app/streamlit_app/Catalogo1960_2021.xlsx')
@@ -78,7 +78,7 @@ df.reset_index(drop=True, inplace=True)
 
 #DF para la tabla
 df2 = df[(df.MAGNITUD>=magInicio) & (df.MAGNITUD<=magFin) & (df.FECHA_UTC_NEW>=start_time) & (df.FECHA_UTC_NEW<=end_time)]
-df2 = df2.drop(["ID","FECHA_UTC","FECHA_UTC_NEW","HORA_UTC","FECHA_CORTE","MAGNITUD_SIZE"],axis=1)
+df2 = df2.drop(["ID","FECHA_UTC","FECHA_UTC_NEW","HORA_UTC","FECHA_CORTE","MAGNITUD_SIZE","COLOR"],axis=1)
 df2 = df2.rename(columns={'HORA_UTC_NEW': 'HORA'})
 
 #Descripción de la información mostrada
