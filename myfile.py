@@ -71,7 +71,7 @@ else:
     else:
         st.write("Se muestran los sismos en el rango de magnitud ", magInicio, " y ", magFin, "ocurridos entre", start_time, "a", end_time)
 #Mostrar mapa
-st.map(df, size='MAGNITUD')
+st.map(df, size='MAGNITUD_SIZE')
 st.write("Datos de la actividad sísmica ocurrida:")
 st.dataframe(df2)
 #Fuente:
