@@ -65,16 +65,13 @@ if magInicio == magFin:
         st.write("No ha ocurrido actividad sísmica de magnitud", magInicio, " entre", start_time, "a", end_time)
     else:
         st.write("Se muestran los sismos de magnitud ", magInicio,"ocurridos entre", start_time, "a", end_time)
+        st.write ("Se ha registrado ", df2.shape[0], " sismos en total durante el periodo seleccionado.")
 else:
     if df.empty:
         st.write("No ha ocurrido actividad sísmica en el rango de magnitud", magInicio, " y ", magFin, " entre", start_time, "a", end_time)
     else:
         st.write("Se muestran los sismos en el rango de magnitud ", magInicio, " y ", magFin, "ocurridos entre", start_time, "a", end_time)
-
-if df.empty:
-    st.write ("Se han registrado 0 sismos ocurridos entre", start_time, "a", end_time)
-else:
-    st.write ("Se han registrado ", df2.shape[0], " sismos ocurridos entre", start_time, "a", end_time)
+        st.write ("Se ha registrado ", df2.shape[0], " sismos en total durante el periodo seleccionado.")
 
 #Mostrar mapa
 st.map(df, size='MAGNITUD_SIZE')
