@@ -23,11 +23,15 @@ start_time, end_time = st.slider("Fechas:", fechaInicio, fechaFin, value=(fechaI
 #st.write("Fecha fin seleccionada:", end_time)
 #queryTime = "FECHA_UTC >= " + str(start_time)
 
-def iguala_formato(fecha_numero):
+def only_year(fecha_numero):
     string = str(fecha_numero)
     dt_object = datetime(int(string[:4]), int(string[4:6]), int(string[6:]))
     return dt_object.date()
-    
+
+def iguala_formato(fecha_numero):
+    string=str(fecha_numero)
+    return datetime(int(string[:4]),int(string[4:6]),int(string[6:]))
+
 def format_time(hora):
     string = str(hora)
     input_str = string.zfill(6)
@@ -41,6 +45,7 @@ def format_time(hora):
     return formatted_time
 
 df['FECHA_UTC_NEW']=df['FECHA_UTC'].apply(iguala_formato)
+df['YEAR']=df['FECHA_UTC'].apply(only_year)
 df['HORA_UTC_NEW']=df['HORA_UTC'].apply(format_time)
 
 df['MAGNITUD_SIZE'] = df['MAGNITUD'] * 100
@@ -54,7 +59,7 @@ df = df[(df.MAGNITUD>=magInicio) & (df.MAGNITUD<=magFin) & (df.FECHA_UTC_NEW>=st
 #df = df.query(queryTime)
 
 df2 = df[(df.MAGNITUD>=magInicio) & (df.MAGNITUD<=magFin) & (df.FECHA_UTC_NEW>=start_time) & (df.FECHA_UTC_NEW<=end_time)]
-df2 = df2.drop(["ID","FECHA_UTC","HORA_UTC","FECHA_CORTE","MAGNITUD_SIZE"],axis=1)
+df2 = df2.drop(["ID","FECHA_UTC","FECHA_UTC_NEW","HORA_UTC","FECHA_CORTE","MAGNITUD_SIZE"],axis=1)
 
 if magInicio == magFin:
     if df.empty:
