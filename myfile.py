@@ -29,14 +29,30 @@ def iguala_formato(fecha_numero):
     string = str(fecha_numero)
     dt_object = datetime(int(string[:4]), int(string[4:6]), int(string[6:]))
     return dt_object.date()
-    
+
+def format_time(input_str):
+    # Padding the input string to ensure it has at least 6 characters
+    input_str = input_str.zfill(6)
+
+    # Extracting hours, minutes, and seconds from the input string
+    hours = int(input_str[:2])
+    minutes = int(input_str[2:4])
+    seconds = int(input_str[4:6])
+
+    # Formatting the time as "HH:MM:SS"
+    formatted_time = f"{hours:02d}:{minutes:02d}:{seconds:02d}"
+    return formatted_time
+
 df['FECHA_UTC_NEW']=df['FECHA_UTC'].apply(iguala_formato)
+df['HORA_UTC_NEW'] = df['HORA_UTC'].appy(format_time)
 #st.write(df['FECHA_UTC_NEW'])
 #print(type(df.iloc["MAGNITUD"])
+
 #df = df[df.FECHA_UTC_NEW<start_time]
 df = df[(df.MAGNITUD>=magInicio) & (df.MAGNITUD<=magFin) & (df.FECHA_UTC_NEW>=start_time) & (df.FECHA_UTC_NEW<=end_time)]
 #df = df[df.MAGNITUD>=magInicio & df.MAGNITUD<=magFin & df.FECHA_UTC_NEW<start_time]
 #df = df.query(queryTime)
+
 df2 = df[(df.MAGNITUD>=magInicio) & (df.MAGNITUD<=magFin) & (df.FECHA_UTC_NEW>=start_time) & (df.FECHA_UTC_NEW<=end_time)]
 df2 = df2.drop(["ID","FECHA_UTC","HORA_UTC","FECHA_CORTE"],axis=1)
 
