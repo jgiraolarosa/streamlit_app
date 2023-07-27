@@ -31,7 +31,7 @@ def only_year(fecha_numero):
 #Color
 def color(point):
     if point < 4:
-        string="#f40166"
+        string="#f4d166"
     elif point <5:
         string="#f5c35c"
     elif point < 6:
@@ -43,7 +43,7 @@ def color(point):
     elif point < 9:
         string="#cd3e43"
     else:
-        string='#b71d3E'
+        string='#f40166'
     return string
 
 st.title("Sismos en Perú de 1960-2021")
@@ -70,7 +70,7 @@ df['HORA_UTC_NEW']=df['HORA_UTC'].apply(format_time)
 df['COLOR'] = df['MAGNITUD'].apply(color)
 
 #Tamaño de los puntos
-df['MAGNITUD_SIZE'] = df['MAGNITUD']*1000
+df['MAGNITUD_SIZE'] = df['MAGNITUD']*9
 
 #DF para el mapa
 df = df[(df.MAGNITUD>=magInicio) & (df.MAGNITUD<=magFin) & (df.FECHA_UTC_NEW>=start_time) & (df.FECHA_UTC_NEW<=end_time)]
@@ -100,8 +100,7 @@ st.map(df, size="MAGNITUD_SIZE", color="COLOR")
 st.write("Datos de la actividad sísmica ocurrida:")
 
 #Mostrar base de datos
-st.dataframe(df,hide_index=True)
-st.dataframe(df2, hide_index= True)
+st.dataframe(df2, hide_index= True, use_container_width=True)
 
 #Fuente:
 st.write("Fuente: Catálogo Sísmico del Perú de 1960 a 2021. Link de acceso: https://www.datosabiertos.gob.pe/dataset/catalogo-sismico-1960-2021-igp")
