@@ -21,10 +21,15 @@ start_time, end_time = st.slider("Fechas:", fechaInicio, fechaFin, value=(fechaI
 #st.write("Fecha fin seleccionada:", end_time)
 #queryTime = "FECHA_UTC >= " + str(start_time)
 
-def iguala_formato(fecha_numero):
-    string=str(fecha_numero)
-    return datetime(int(string[:4]),int(string[4:6]),int(string[6:]))
+#def iguala_formato(fecha_numero):
+#    string=str(fecha_numero)
+#    return datetime(int(string[:4]),int(string[4:6]),int(string[6:]))
 
+def iguala_formato(fecha_numero):
+    string = str(fecha_numero)
+    dt_object = datetime(int(string[:4]), int(string[4:6]), int(string[6:]))
+    return dt_object.date()
+    
 def format_time(hora):
     string = str(hora)
     input_str = string.zfill(6)
@@ -49,7 +54,6 @@ df = df[(df.MAGNITUD>=magInicio) & (df.MAGNITUD<=magFin) & (df.FECHA_UTC_NEW>=st
 #df = df.query(queryTime)
 
 df2 = df[(df.MAGNITUD>=magInicio) & (df.MAGNITUD<=magFin) & (df.FECHA_UTC_NEW>=start_time) & (df.FECHA_UTC_NEW<=end_time)]
-df2['FECHA_UTC_NEW'] = df['FECHA_UTC_NEW'].str.split(' ').str[0]
 df2 = df2.drop(["ID","FECHA_UTC","HORA_UTC","FECHA_CORTE"],axis=1)
 
 if magInicio == magFin:
