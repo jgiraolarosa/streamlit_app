@@ -44,7 +44,7 @@ def color(point):
         string="#cd3e43"
     else:
         string='#f40166'
-    return color
+    return string
 
 def highlight_color(val):
     color_df = f'background-color: {val}; color: black;'
