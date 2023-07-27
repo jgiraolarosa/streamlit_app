@@ -95,8 +95,11 @@ else:
         st.write ("Se ha registrado ", df2.shape[0], " sismos en total durante el periodo seleccionado.")
 
 #Mostrar mapa
-st.map(df, size='MAGNITUD_SIZE', color="COLOR")
+st.map(df, size="MAGNITUD_SIZE", color="COLOR")
 st.write("Datos de la actividad sísmica ocurrida:")
+
+#Mostrar base de datos
+st.dataframe(df,hide_index=True)
 st.dataframe(df2, hide_index= True)
 
 #Fuente:
