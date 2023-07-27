@@ -31,17 +31,17 @@ def only_year(fecha_numero):
 #Color
 def color(point):
     if point < 4:
-        string='#f40166'
+        string="#f40166"
     elif point <5:
-        string='#f5c35c'
+        string="#f5c35c"
     elif point < 6:
-        string='#fa904f'
+        string="#fa904f"
     elif point < 7:
-        string='#ee704a'
+        string="#ee704a"
     elif point < 8:
-        string='#e05b48'
+        string="#e05b48"
     elif point < 9:
-        string='#cd3e43'
+        string="#cd3e43"
     else:
         string='#b71d3E'
     return string
