@@ -5,7 +5,9 @@ from datetime import time
 from datetime import datetime
 
 st.title("Sismos en Perú de 1960-2021")
-st.write("En esta página, podrá visualizar la ubicación y profundidad de los sismos percibidos por la población y registrados por la Red Sísmica Nacional entre 1960 a 2021. La información ha sido obtenido a partir del catálogo elaborado por el Instituto Geofísico del Perú (IGP), institución responsable del monitoreo de la actividad sísmica en el país, A continuación, seleccione la magnitud y periodo de ocurrencia para visualizar la actividad sísmica en el mapa.")
+st.write("En esta página, podrá visualizar la ubicación y profundidad de los sismos percibidos por la población y registrados por la Red Sísmica Nacional entre 1960 a 2021. La información ha sido obtenido a partir del catálogo elaborado por el Instituto Geofísico del Perú (IGP), institución responsable del monitoreo de la actividad sísmica en el país.") 
+st.write("A continuación, seleccione la magnitud y periodo de ocurrencia para visualizar la actividad sísmica en el mapa.")
+
 #Lectura del dataframe
 df = pd.read_excel('/app/streamlit_app/Catalogo1960_2021.xlsx')
 
@@ -67,8 +69,8 @@ else:
     else:
         st.write("Se muestran los sismos en el rango de magnitud ", magInicio, " y ", magFin, "ocurridos entre", start_time, "a", end_time)
 #Mostrar mapa
-st.map(df, size="MAGNITUD")
-st.write("Datos de los terremotos ocurridos")
+st.map(df, size='MAGNITUD')
+st.write("Datos de la actividad sísmica ocurrida:")
 st.dataframe(df2)
 #Fuente:
-st.write("Fuente: Catálogo Sísmico del Perú de 1960 a 2021.[https://www.datosabiertos.gob.pe/dataset/catalogo-sismico-1960-2021-igp")
+st.write("Fuente: Catálogo Sísmico del Perú de 1960 a 2021. Link de acceso: https://www.datosabiertos.gob.pe/dataset/catalogo-sismico-1960-2021-igp")
