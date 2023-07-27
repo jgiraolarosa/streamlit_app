@@ -74,6 +74,7 @@ df['MAGNITUD_SIZE'] = df['MAGNITUD']*1000
 
 #DF para el mapa
 df = df[(df.MAGNITUD>=magInicio) & (df.MAGNITUD<=magFin) & (df.FECHA_UTC_NEW>=start_time) & (df.FECHA_UTC_NEW<=end_time)]
+df.reset_index(drop=True, inplace=True)
 
 #DF para la tabla
 df2 = df[(df.MAGNITUD>=magInicio) & (df.MAGNITUD<=magFin) & (df.FECHA_UTC_NEW>=start_time) & (df.FECHA_UTC_NEW<=end_time)]
