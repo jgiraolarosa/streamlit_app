@@ -23,6 +23,10 @@ start_time, end_time = st.slider("Fechas:", fechaInicio, fechaFin, value=(fechaI
 #st.write("Fecha fin seleccionada:", end_time)
 #queryTime = "FECHA_UTC >= " + str(start_time)
 
+d = st.date_input("Fecha de sismo", datetime.date(YYYY, MM, DD))
+
+st.write('Tu cumpleaños es:, d)
+         
 def iguala_formato(fecha_numero):
     string=str(fecha_numero)
     return datetime(int(string[:4]),int(string[4:6]),int(string[6:]))
