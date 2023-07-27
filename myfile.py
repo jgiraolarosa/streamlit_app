@@ -74,6 +74,6 @@ else:
 #Mostrar mapa
 st.map(df, size='MAGNITUD_SIZE')
 st.write("Datos de la actividad sísmica ocurrida:")
-st.dataframe(df2)
+st.dataframe(df2, hide_index= True)
 #Fuente:
 st.write("Fuente: Catálogo Sísmico del Perú de 1960 a 2021. Link de acceso: https://www.datosabiertos.gob.pe/dataset/catalogo-sismico-1960-2021-igp")
