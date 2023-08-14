@@ -51,7 +51,7 @@ st.write("En esta página, podrá visualizar la ubicación y profundidad de los 
 st.write("A continuación, seleccione la magnitud y periodo de ocurrencia para visualizar la actividad sísmica en el mapa. Se representará los sismos de menor a mayor magnitud en una gradiente de amarillo pálido a rojo oscuro, respectivamente.")
 
 #Lectura del dataframe
-df = pd.read_excel('/app/streamlit_app/Catalogo1960_2021.xlsx')
+df = pd.read_excel('Catalogo1960_2021.xlsx')
 
 #Magnitud
 magnitudPosible = [3.0,4.0,5.0,6.0,7.0,8.0,9.0]
